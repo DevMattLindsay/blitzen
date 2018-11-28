@@ -1,0 +1,24 @@
+{
+  "name": "Blitzen",
+  "version": "1.0.0",
+  "description": "blitzen",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+		"gulp-notify": "*",
+		"gulp-clean-css": "*",
+		"gulp-concat": "*",
+		"gulp-sass": "*",
+		"gulp-sourcemaps": "*",
+		"gulp-watch": "*",
+		"gulp-sequence": "*",
+		"require-dir": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matthew Lindsay <matthewlindsay2@gmail.com>",
+  "license": ""
+}
