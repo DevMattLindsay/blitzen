@@ -1,10 +1,5 @@
 {{ header }}
 <div id="account-order" class="container">
-  <ul class="breadcrumb">
-    {% for breadcrumb in breadcrumbs %}
-    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
-    {% endfor %}
-  </ul>
   {% if success %}
   <div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> {{ success }}
     <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -72,7 +67,7 @@
               {% endif %} </tr>
           </thead>
           <tbody>
-          
+
           {% for product in products %}
           <tr>
             <td class="text-left">{{ product.name }}
@@ -97,9 +92,9 @@
             {% endif %} </tr>
           {% endfor %}
             </tbody>
-          
+
           <tfoot>
-          
+
           {% for total in totals %}
           <tr>
             <td colspan="3"></td>
@@ -110,7 +105,7 @@
             {% endif %} </tr>
           {% endfor %}
             </tfoot>
-          
+
         </table>
       </div>
       {% if comment %}
@@ -138,7 +133,7 @@
           </tr>
         </thead>
         <tbody>
-        
+
         {% if histories %}
         {% for history in histories %}
         <tr>
@@ -153,7 +148,7 @@
         </tr>
         {% endif %}
           </tbody>
-        
+
       </table>
       {% endif %}
       <div class="buttons clearfix">

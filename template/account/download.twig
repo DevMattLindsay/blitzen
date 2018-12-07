@@ -1,10 +1,5 @@
 {{ header }}
 <div id="account-download" class="container">
-  <ul class="breadcrumb">
-    {% for breadcrumb in breadcrumbs %}
-    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
-    {% endfor %}
-  </ul>
   <div class="row">{{ column_left }}
     {% if column_left and column_right %}
     {% set class = 'col-sm-6' %}
@@ -28,7 +23,7 @@
             </tr>
           </thead>
           <tbody>
-          
+
           {% for download in downloads %}
           <tr>
             <td class="text-right">{{ download.order_id }}</td>
@@ -39,7 +34,7 @@
           </tr>
           {% endfor %}
           </tbody>
-          
+
         </table>
       </div>
       <div class="row">

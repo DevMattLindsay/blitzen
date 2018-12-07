@@ -1,30 +1,40 @@
 {% if categories %}
-<div class="container">
-  <nav id="menu" class="navbar">
-    <div class="navbar-header"><span id="category" class="visible-xs">{{ text_category }}</span>
-      <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
+<nav id="menu" class="navbar">
+  <div class="navbar-header"><span id="category" class="visible-xs">{{ text_category }}</span>
+    <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
+    <div class="navbar-right-absolute">
+      <i class="navbar-icon-search fa fa-search fa-3x"></i>
     </div>
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav">
-        {% for category in categories %}
-        {% if category.children %}
-        <li class="dropdown"><a href="{{ category.href }}" class="dropdown-toggle" data-toggle="dropdown">{{ category.name }}</a>
-          <div class="dropdown-menu">
-            <div class="dropdown-inner"> {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
-              <ul class="list-unstyled">
-                {% for child in children %}
-                <li><a href="{{ child.href }}">{{ child.name }}</a></li>
-                {% endfor %}
-              </ul>
-              {% endfor %}</div>
-            <a href="{{ category.href }}" class="see-all">{{ text_all }} {{ category.name }}</a> </div>
-        </li>
-        {% else %}
-        <li><a href="{{ category.href }}">{{ category.name }}</a></li>
-        {% endif %}
-        {% endfor %}
-      </ul>
-    </div>
-  </nav>
-</div>
-{% endif %} 
+  </div>
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav navbar-left">
+      {% for category in categories %}
+      {% if category.children %}
+      {% if category.name == "Blog" %}
+      {% for child in category.children %}
+      <li><a href="{{ child.href }}">{{ child.name }}</a></li>
+      {% endfor %}
+      {% endif %}
+      {% else %}
+      {% endif %}
+      {% endfor %}
+    </ul>
+    <a class="navbar-logo-wrap" href="{{ home }}">
+      <img class="navbar-logo" src="./catalog/view/theme/blitzen/image/custom/header-brand.png">
+    </a>
+    <ul class="nav navbar-nav navbar-right">
+      {% if logged %}
+      <li><a href="{{ account }}">{{ text_account }}</a></li>
+      <li><a href="{{ order }}">{{ text_order }}</a></li>
+      <li><a href="{{ transaction }}">{{ text_transaction }}</a></li>
+      <li><a href="{{ download }}">{{ text_download }}</a></li>
+      <li><a href="{{ logout }}">{{ text_logout }}</a></li>
+      {% else %}
+      <li><a href="{{ register }}">{{ text_register }}</a></li>
+      <li><a href="{{ login }}">{{ text_login }}</a></li>
+      {% endif %}
+    </ul>
+  </div>
+
+</nav>
+{% endif %}
