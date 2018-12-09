@@ -1,9 +1,13 @@
 {% if categories %}
 <nav id="menu" class="navbar">
-  <div class="navbar-header"><span id="category" class="visible-xs">{{ text_category }}</span>
-    <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
+  <div class="navbar-header">
+    <a class="navbar-logo-mobile-wrap" href="{{ home }}">
+      <img class="navbar-logo-mobile visible-xs" src="./catalog/view/theme/blitzen/image/custom/header-brand-mobile.png">
+    </a>
     <div class="navbar-right-absolute">
       <i class="navbar-icon-search fa fa-search fa-3x"></i>
+    </div>
+    <div type="button" class="button-collapse visible-xs" data-toggle="collapse" data-target=".navbar-ex1-collapse">
     </div>
   </div>
   <div class="collapse navbar-collapse navbar-ex1-collapse">
