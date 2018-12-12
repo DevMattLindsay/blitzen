@@ -1,44 +1,51 @@
 {% if categories %}
-<nav id="menu" class="navbar">
-  <div class="navbar-header">
-    <a class="navbar-logo-mobile-wrap" href="{{ home }}">
-      <img class="navbar-logo-mobile visible-xs" src="./catalog/view/theme/blitzen/image/custom/header-brand-mobile.png">
-    </a>
-    <div class="navbar-right-absolute">
-      <i class="navbar-icon-search fa fa-search fa-3x"></i>
-    </div>
-    <div type="button" class="button-collapse visible-xs" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-    </div>
+<div class="menu-container">
+  <div id="search" class="navbar-search input-group">
+    <input type="text" name="search" value="{{ search }}" placeholder="type here" class="navbar-search-input">
+    <button type="button" name="button" class="btn-search">{{ text_search }}</button>
+    <i class="navbar-search-icon-close fa fa-close fa-3x"></i>
   </div>
-  <div class="collapse navbar-collapse navbar-ex1-collapse">
-    <ul class="nav navbar-nav navbar-left">
-      {% for category in categories %}
-      {% if category.children %}
-      {% if category.name == "Blog" %}
-      {% for child in category.children %}
-      <li><a href="{{ child.href }}">{{ child.name }}</a></li>
-      {% endfor %}
-      {% endif %}
-      {% else %}
-      {% endif %}
-      {% endfor %}
-    </ul>
-    <a class="navbar-logo-wrap" href="{{ home }}">
-      <img class="navbar-logo" src="./catalog/view/theme/blitzen/image/custom/header-brand.png">
-    </a>
-    <ul class="nav navbar-nav navbar-right">
-      {% if logged %}
-      <li><a href="{{ account }}">{{ text_account }}</a></li>
-      <li><a href="{{ order }}">{{ text_order }}</a></li>
-      <li><a href="{{ transaction }}">{{ text_transaction }}</a></li>
-      <li><a href="{{ download }}">{{ text_download }}</a></li>
-      <li><a href="{{ logout }}">{{ text_logout }}</a></li>
-      {% else %}
-      <li><a href="{{ register }}">{{ text_register }}</a></li>
-      <li><a href="{{ login }}">{{ text_login }}</a></li>
-      {% endif %}
-    </ul>
-  </div>
+  <nav id="menu" class="navbar">
+    <div class="navbar-header">
+      <a class="navbar-logo-mobile-wrap" href="{{ home }}">
+        <img class="navbar-logo-mobile visible-xs" src="./catalog/view/theme/blitzen/image/custom/header-brand-mobile.png">
+      </a>
+      <div class="navbar-right-absolute">
+        <i class="navbar-icon-search fa fa-search fa-3x"></i>
+      </div>
+      <div type="button" class="button-collapse visible-xs" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      </div>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-left">
+        {% for category in categories %}
+        {% if category.children %}
+        {% if category.name == "Blog" %}
+        {% for child in category.children %}
+        <li><a href="{{ child.href }}">{{ child.name }}</a></li>
+        {% endfor %}
+        {% endif %}
+        {% else %}
+        {% endif %}
+        {% endfor %}
+      </ul>
+      <a class="navbar-logo-wrap" href="{{ home }}">
+        <img class="navbar-logo" src="./catalog/view/theme/blitzen/image/custom/header-brand.png">
+      </a>
+      <ul class="nav navbar-nav navbar-right">
+        {% if logged %}
+        <li><a href="{{ account }}">{{ text_account }}</a></li>
+        <li><a href="{{ order }}">{{ text_order }}</a></li>
+        <li><a href="{{ transaction }}">{{ text_transaction }}</a></li>
+        <li><a href="{{ download }}">{{ text_download }}</a></li>
+        <li><a href="{{ logout }}">{{ text_logout }}</a></li>
+        {% else %}
+        <li><a href="{{ register }}">{{ text_register }}</a></li>
+        <li><a href="{{ login }}">{{ text_login }}</a></li>
+        {% endif %}
+      </ul>
+    </div>
 
-</nav>
+  </nav>
+</div>
 {% endif %}

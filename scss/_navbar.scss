@@ -8,11 +8,58 @@ header {
   display: none;
 }
 
+.menu-container {
+  position: relative;
+  top: -$size_header_search;
+  transition: top 0.3s ease-in;
+  &.menu-container-pullout {
+    top: 0;
+  }
+}
+
+.navbar-search#search {
+  @include flex;
+  justify-content: center;
+  align-items: center;
+  height: $size_header_search;
+  margin: 0;
+  background-color: $color-primary;
+
+  .navbar-search-input {
+    background-color: transparent;
+    border: 2px solid $color_black;
+    border-radius: 5px 0 0 5px;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 1.6em;
+    text-transform: uppercase;
+    color: $color_black;
+    outline: none;
+  }
+  .btn-search {
+    border: 2px solid $color_black;
+    border-radius: 0 5px 5px 0;
+    padding: 15px;
+    font-size: 1.6em;
+    text-transform: uppercase;
+    background-color: $color_black;
+    color: $color_white;
+  }
+  .navbar-search-icon-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2.3em;
+    color: $color_black;
+    cursor: pointer;
+  }
+}
+
 .navbar#menu {
   height: $size_header_height;
   border: 0;
   border-radius: 0;
-  margin-bottom: 60px;
+  margin-bottom: 0;
   background: $color_secondary;
 
   .navbar-header {
@@ -50,8 +97,6 @@ header {
     .navbar-logo-wrap {
       z-index: 10;
       .navbar-logo {
-        // position: absolute;
-        // top: 0;
         height: 100px;
       }
     }
@@ -101,7 +146,15 @@ header {
 };
 
 @include tablet {
-
+  .navbar#menu {
+    .navbar-collapse {
+      .navbar-logo-wrap {
+        .navbar-logo {
+          height: 70px;
+        }
+      }
+    }
+  }
 };
 
 @include mobile {
@@ -136,6 +189,7 @@ header {
         height: 50px;
         border: 0;
         background-color: transparent;
+        cursor: pointer;
 
         &:before, &:after {
           content: "";
