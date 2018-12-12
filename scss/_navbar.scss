@@ -12,6 +12,8 @@ header {
   position: relative;
   top: -$size_header_search;
   transition: top 0.3s ease-in;
+  z-index: 10;
+  margin-bottom: -30px;
   &.menu-container-pullout {
     top: 0;
   }
@@ -59,7 +61,6 @@ header {
   height: $size_header_height;
   border: 0;
   border-radius: 0;
-  margin-bottom: 0;
   background: $color_secondary;
 
   .navbar-header {
@@ -158,6 +159,23 @@ header {
 };
 
 @include mobile {
+
+  .navbar-search#search {
+    .navbar-search-input {
+      width: 210px;
+      padding: 10px;
+      font-size: 1.2em;
+    }
+    .btn-search {
+      padding: 10px;
+      font-size: 1.2em;
+    }
+    .navbar-search-icon-close {
+      top: 5px;
+      right: 5px;
+    }
+  }
+
   .navbar#menu {
     height: auto;
 
