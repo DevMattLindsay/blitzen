@@ -7,15 +7,103 @@ textarea {
   resize: none;
 }
 
-.form-control-icon-container {
-  .form-control {
+.breadcrumb {
+  display: none;
+}
 
-  }
-  .form-control-icon {
-    
+.btn {
+  padding: 15px 30px;
+  border: 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-image: none;
+  transition: background-color 0.15s ease-in;
+
+  &.btn-primary {
+    background-color: $color_secondary;
+    background-image: none;
+
+    &:hover {
+      background-color: lighten($color_secondary, 9%);
+    }
   }
 }
 
-.breadcrumb {
-  display: none;
+.form-control {
+  border-color: $color_secondary;
+  box-shadow: none;
+  font-weight: bold;
+  font-size: 13px;
+
+  &::placeholder {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  &:focus {
+    border-color: $color_secondary;
+    box-shadow: 0px 0px 0px 2px rgba($color-primary, 0.8);
+  }
+}
+
+.form-control-icon-container {
+  position: relative;
+  max-width: 350px;
+
+  .form-control-icon-input {
+    height: 50px;
+    padding-left: 60px;
+  }
+  .form-control-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;;
+    margin: 1px;
+    padding-bottom: 4px;
+    border-right: 1px solid $color_secondary;
+    border-radius: 4px 0 0 4px;
+    font-size: 22px;
+    background-color: $color_secondary;
+    color: $color_grey;
+    transition: color 0.15s ease-in;
+    pointer-events: none;
+  }
+
+  &.focus {
+    .form-control-icon {
+      color: $color-primary;
+    }
+  }
+}
+
+.has-error {
+  .form-control {
+    box-shadow: 0px 0px 0px 2px rgba(#a94442, 0.8);
+    &:focus {
+      border-color: $color_secondary;
+      box-shadow: 0px 0px 0px 2px rgba($color-primary, 0.8);
+    }
+  }
+  .form-control-icon-container {
+    .form-control-icon {
+      color: #a94442;
+    }
+
+    &.focus {
+      .form-control-icon {
+        color: $color-primary;
+      }
+    }
+  }
+}
+
+.text-danger {
+  margin: 4px 0;
+  font-size: 14px;
+  font-weight: bold;
 }
